@@ -9,12 +9,6 @@ use App\User;
 
 class MemberController extends Controller
 {
-    public function __construct(){
-      $this->middleware(function ($request, $next) {
-            $request->user()->authorizeRoles(['TL', 'ATL']);
-            return $next($request);
-        });
-    }
     /**
      * Display a listing of the resource.
      *
@@ -34,6 +28,8 @@ class MemberController extends Controller
     public function create()
     {
         //
+        //$request->user()->authorizeRoles(['SA', 'A']);
+        return view('members.create');
     }
 
     /**

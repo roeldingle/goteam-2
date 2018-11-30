@@ -12,9 +12,8 @@ The Team
 
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <a href="{{ route('members.create') }}"  class="btn btn-sm btn-success pull-right">Create</a>
+                  <a href="{{ route('members.create') }}"  class="btn btn-success pull-right">Create</a>
                   <h4 class="card-title ">Members List</h4>
-                  <p class="card-category"> Here is a subtitle for this table</p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -30,9 +29,9 @@ The Team
                         <tbody>
                           <!--loop Here-->
                           @if ($members)
-                              @foreach($members as $member)
+                              @foreach($members as $index=>$member)
                                 <tr>
-                                  <td>{{ $member->id }}</td>
+                                  <td>{{ $index+1 }}</td>
                                   <td>{{ $member->email }}</td>
                                   <td>{{ $member->name }}</td>
                                   <td>{{ $member->contact_number }}</td>

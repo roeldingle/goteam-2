@@ -49,13 +49,13 @@
             <li class="nav-item {{ Route::currentRouteNamed('members.index') ? 'active' : '' }}">
               <a class="nav-link" href="{{route('members.index')}}">
                 <i class="material-icons">group</i>
-                <p>The Team</p>
+                <p>Team Members</p>
               </a>
             </li>
             <li class="nav-item {{ Route::currentRouteNamed('jobs.index') ? 'active' : '' }}">
               <a class="nav-link" href="{{route('jobs.index')}}">
                 <i class="material-icons">assignment_ind</i>
-                <p>Jobs</p>
+                <p>Job Roles</p>
               </a>
             </li>
             <li class="nav-item ">
@@ -112,17 +112,17 @@
                 </div>
               </form> -->
               <ul class="navbar-nav">
-                <li class="nav-item text-info">
-                  {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
-                </li>
+
                 <li class="nav-item dropdown">
-                  <a class="nav-link" href="javscript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="material-icons">account_circle</i>
+                  <a class="nav-link text-info" href="javscript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- <i class="material-icons">account_circle</i> -->
+                    <span style="text-transform:lowercase;margin-right:5px">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</span>
+                    <img style="height:40px;border-radius:50%;" class="img-responsive img-circle" src="https://scontent.fmnl6-1.fna.fbcdn.net/v/t1.0-1/p160x160/11825953_1047734388583992_1727016485304329009_n.jpg?_nc_cat=110&_nc_ht=scontent.fmnl6-1.fna&oh=8e44b6fbdc7ca6fd2e84268f66913ae0&oe=5C6AC617" />
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="javascript:void(0)">View Profile</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Change Password</a>
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">Logout</a>
+                    <a class="dropdown-item" href="javascript:void(0)"><i class="material-icons">edit</i>&nbsp;&nbsp; Update Profiles</a>
+                    <a class="dropdown-item" href="javascript:void(0)"><i class="material-icons">lock</i>&nbsp;&nbsp;Change Password</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp; Logout</a>
                     <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>

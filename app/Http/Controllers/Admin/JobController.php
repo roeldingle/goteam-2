@@ -11,12 +11,12 @@ use App\Job;
 class JobController extends Controller
 {
 
-    public function __construct(){
-      $this->middleware(function ($request, $next) {
-            $request->user()->authorizeRoles(['TL', 'ATL']);
-            return $next($request);
-        });
-    }
+    // public function __construct(){
+    //   $this->middleware(function ($request, $next) {
+    //         $request->user()->authorizeRoles(['SA', 'A']);
+    //         return $next($request);
+    //     });
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -33,8 +33,9 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+      $request->user()->authorizeRoles(['SA', 'A']);
       return view('jobs.create');
     }
 

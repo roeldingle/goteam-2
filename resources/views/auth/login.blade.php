@@ -9,22 +9,23 @@ Login | {{Config::get('app.name')}}
   <div class="content-center">
     <div class="col-md-8 ml-auto mr-auto">
 
-              <div class="card card-stats">
-                <div class="card-header card-header-danger card-header-icon">
+              <div class="card card-stats" style="text-align:left">
+                <div class="card-header card-header-danger">
                   <div class="card-icon">
                     <i class="material-icons">lock_open</i>
                   </div>
-                  <h2 class="card-title">Login</h2>
+                  <h3 class="card-title">Login</h3>
+                  <p class="card-category text-md-right">Enter your credentials</p>
                 </div>
                 <div class="card-body">
                   <form method="POST" action="{{ route('login') }}">
                       @csrf
 
                       <div class="form-group row">
-                          <label for="email" class="col-sm-12 col-form-label text-md-center">{{ __('E-Mail Address') }}</label>
+                          <label for="email" class="text-md-left col-sm-12 col-form-label bmd-label-floating">{{ __('E-Mail Address') }}</label>
 
                           <div class="col-md-12">
-                              <input style="margin:20px 0" id="email" type="email" class="text-md-center form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                              <input style="margin:20px 0" id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                               @if ($errors->has('email'))
                                   <span class="invalid-feedback" role="alert">
@@ -35,10 +36,10 @@ Login | {{Config::get('app.name')}}
                       </div>
 
                       <div class="form-group row">
-                          <label for="password" class="col-md-12 col-form-label text-md-center">{{ __('Password') }}</label>
+                          <label for="password" class="text-md-left col-sm-12 col-form-label bmd-label-floating">{{ __('Password') }}</label>
 
                           <div class="col-md-12">
-                              <input style="margin:20px 0" id="password" type="password" class="text-md-center form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                              <input style="margin:20px 0" id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                               @if ($errors->has('password'))
                                   <span class="invalid-feedback" role="alert">

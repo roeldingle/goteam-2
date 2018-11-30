@@ -14,7 +14,7 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
-      $request->user()->authorizeRoles(['TL', 'ATL','M']);
+      //$request->user()->authorizeRoles(['TL', 'ATL','M']);
       return view('dashboard');
     }
 
