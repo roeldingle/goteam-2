@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'date_hired', 'contact_number'
+        'email', 'password',
     ];
 
     /**
@@ -31,6 +31,11 @@ class User extends Authenticatable
     public function roles()
     {
       return $this->belongsToMany(Role::class);
+    }
+
+    public function metas()
+    {
+      return $this->hasOne(UserMeta::class);
     }
 
     //Download our Brochure to Find out more

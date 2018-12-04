@@ -9,7 +9,11 @@ The Team
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-
+            @if (Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    {!! Session::get('success') !!}
+                </div>
+            @endif
               <div class="card">
                 <div class="card-header card-header-primary">
                   <a href="{{ route('members.create') }}"  class="btn btn-success pull-right">Create</a>
@@ -33,6 +37,7 @@ The Team
                                 <tr>
                                   <td>{{ $index+1 }}</td>
                                   <td>{{ $member->email }}</td>
+                                  <td>{{ $member->name }}</td>
                                   <td>{{ $member->name }}</td>
                                   <td>{{ $member->contact_number }}</td>
                                   <td>

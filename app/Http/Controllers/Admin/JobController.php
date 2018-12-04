@@ -11,12 +11,6 @@ use App\Job;
 class JobController extends Controller
 {
 
-    // public function __construct(){
-    //   $this->middleware(function ($request, $next) {
-    //         $request->user()->authorizeRoles(['SA', 'A']);
-    //         return $next($request);
-    //     });
-    // }
     /**
      * Display a listing of the resource.
      *
