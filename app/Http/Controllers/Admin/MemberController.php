@@ -8,9 +8,14 @@ use App\Http\Requests\memberValidate;
 
 use App\User;
 use App\UserMeta;
+use App\Role;
 
 class MemberController extends Controller
 {
+    // public function __construct(Request $request)
+    // {
+    //     $request->user()->authorizeRoles(['SA', 'A']);
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +23,7 @@ class MemberController extends Controller
      */
     public function index(Request $request)
     {
+      //dd($request->user()->authorizeRoles(['SA', 'A', 'M']));
       $members = User::latest()->paginate(10);
       return view('members.index', compact('members'));
     }
@@ -45,6 +51,7 @@ class MemberController extends Controller
 
       $user = new User;
       $usermeta = new UserMeta;
+      $role_default = Role::where('shortname', 'M')->first();
 
       if(isset($request['user_id']) && $request['user_id'] !== ''){
         $user_id = $request['user_id'];
@@ -65,7 +72,10 @@ class MemberController extends Controller
       $usermeta->date_birth = $request['date_birth'];
       $usermeta->contact_number = $request['contact_number'];
       $usermeta->address = $request['address'];
+      $usermeta->avatar = $request['avatar'];
+      $usermeta->description = $request['description'];
       $usermeta->save();
+      $user->roles()->attach($role_default);
 
       return redirect('/admin/members')->with('success','New member created successfully!');
     }

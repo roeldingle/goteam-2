@@ -86,10 +86,30 @@
 
                     </div>
                     <div class="row">
-                      <div class="col-md-8">
+                      <div class="col-md-12">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Home Address</label>
-                          <textarea name="address" class="form-control" rows="3"></textarea>
+                          <textarea name="address" class="form-control" rows="2"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Avatar URL</label>
+                          <input name="avatar" type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                          <label>Description</label>
+                          <div class="form-group bmd-form-group">
+                            <label class="bmd-label-floating">Who you are? describe using 100 charters</label>
+                            <textarea name="description" class="form-control" rows="4"></textarea>
+                          </div>
+
                         </div>
                       </div>
                     </div>

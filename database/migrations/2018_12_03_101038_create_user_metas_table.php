@@ -15,7 +15,8 @@ class CreateUserMetasTable extends Migration
     {
         Schema::create('user_metas', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('job_id')->unsigned();
             $table->string('fname');
             $table->string('mname');
@@ -24,6 +25,8 @@ class CreateUserMetasTable extends Migration
             $table->date('date_birth');
             $table->string('contact_number');
             $table->string('address');
+            $table->text('avatar');
+            $table->text('description');
             $table->timestamps();
         });
     }
