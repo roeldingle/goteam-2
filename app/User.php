@@ -38,6 +38,11 @@ class User extends Authenticatable
       return $this->hasOne(UserMeta::class);
     }
 
+    public function job($id)
+    {
+      return Job::find($id);
+    }
+
     //Download our Brochure to Find out more
 
     /**

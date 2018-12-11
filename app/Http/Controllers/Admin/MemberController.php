@@ -9,18 +9,11 @@ use App\Http\Requests\memberValidate;
 use App\User;
 use App\UserMeta;
 use App\Role;
+use App\Job;
 
 class MemberController extends Controller
 {
-    // public function __construct(Request $request)
-    // {
-    //     $request->user()->authorizeRoles(['SA', 'A']);
-    // }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
       //dd($request->user()->authorizeRoles(['SA', 'A', 'M']));
@@ -28,24 +21,14 @@ class MemberController extends Controller
       return view('members.index', compact('members'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
         //$request->user()->authorizeRoles(['SA', 'A']);
-        return view('members.create');
+        $jobs = Job::all();
+        return view('members.create', compact('jobs', $jobs));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request, memberValidate $validate)
     {
 
@@ -80,36 +63,19 @@ class MemberController extends Controller
       return redirect('/admin/members')->with('success','New member created successfully!');
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $member = User::find($id);
+        return view('members.show', compact('member'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+      $jobs = Job::all();
+      $member = User::find($id);
+      return view('members.edit', compact(['member','jobs']));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
