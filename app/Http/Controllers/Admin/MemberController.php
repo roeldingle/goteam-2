@@ -76,19 +76,31 @@ class MemberController extends Controller
       return view('members.edit', compact(['member','jobs']));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, memberValidate $validate, $id)
     {
-        //
+
+           $user = User::find($id);
+           $user->metas->job_id = $request['job_id'];
+           $user->metas->fname = $request['fname'];
+           $user->metas->mname = $request['mname'];
+           $user->metas->lname = $request['lname'];
+           $user->metas->date_hired = $request['date_hired'];
+           $user->metas->date_birth = $request['date_birth'];
+           $user->metas->contact_number = $request['contact_number'];
+           $user->metas->address = $request['address'];
+           $user->metas->avatar = $request['avatar'];
+           $user->metas->description = $request['description'];
+           $user->metas->save();
+
+           return redirect('/admin/members')->with('success','Updated member successfully!');
+
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+      $user = User::find($id);
+      $user->delete();
+      return redirect('/admin/members')->with('success', 'Member has been deleted Successfully');
     }
 }

@@ -69,9 +69,13 @@ The Team
                                         <i class="material-icons">edit</i>
                                       </button>
                                     </a>
-                                    <button type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Remove">
-                                      <i class="material-icons">close</i>
-                                    </button>
+                                    <form class="pull-right" action="{{ route('members.destroy', $member->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                      <button type="submit" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Remove">
+                                        <i class="material-icons">close</i>
+                                      </button>
+                                    </form>
                                   </td>
                                 </tr>
                               @endforeach

@@ -21,7 +21,8 @@
                   <p class="card-category">add a team member</p>
                 </div>
                 <div class="card-body">
-                  <form action="{{ route('members.store') }}" method="post">
+                  <form action="{{ route('members.update', $member->id) }}" method="post" >
+                    @method('PATCH')
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
@@ -46,7 +47,7 @@
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                           <label>Date Hired</label>
-                          <input name="date_hired" type="date" class="form-control">
+                          <input name="date_hired" type="date" class="form-control" value="{{ $member->metas->date_hired ?? '---' }}">
                         </div>
                       </div>
                     </div>
@@ -80,7 +81,7 @@
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                           <label>Date Birth</label>
-                          <input name="date birth" type="date" class="form-control">
+                          <input name="date_birth" type="date" class="form-control" value="{{ $member->metas->date_birth ?? '---' }}">
                         </div>
                       </div>
 
