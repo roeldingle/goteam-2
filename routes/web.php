@@ -26,4 +26,5 @@ Route::namespace('Admin')
       Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
       Route::resource('/members', 'MemberController');
       Route::resource('/jobs', 'JobController');
+      Route::resource('/roles', 'RoleController');
 });

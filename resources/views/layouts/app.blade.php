@@ -55,13 +55,13 @@
             <li class="nav-item {{ Route::currentRouteNamed('jobs.index') ? 'active' : '' }}">
               <a class="nav-link" href="{{route('jobs.index')}}">
                 <i class="material-icons">assignment_ind</i>
-                <p>Job Roles</p>
+                <p>Jobs/Position</p>
               </a>
             </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="./typography.html">
+            <li class="nav-item {{ Route::currentRouteNamed('roles.index') ? 'active' : '' }}">
+              <a class="nav-link" href="{{route('roles.index')}}">
                 <i class="material-icons">library_books</i>
-                <p>Typography</p>
+                <p>User Roles</p>
               </a>
             </li>
             <li class="nav-item ">
